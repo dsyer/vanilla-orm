@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import app.main.model.Foo;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
