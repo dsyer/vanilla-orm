@@ -142,9 +142,8 @@ public class ProcessLauncherState {
 				builder.append(new File("target/classes").getAbsolutePath());
 			}
 			else {
-				builder.append(
-						new File("target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar")
-								.getAbsolutePath());
+				builder.append(new File("target/orm-0.0.1.BUILD-SNAPSHOT.jar")
+						.getAbsolutePath());
 			}
 			try {
 				for (Archive archive : resolved) {
