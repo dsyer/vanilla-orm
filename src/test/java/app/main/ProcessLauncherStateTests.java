@@ -53,7 +53,7 @@ public class ProcessLauncherStateTests {
 		state.after();
 		assertThat(output.toString()).contains("Benchmark app started");
 		assertThat(state.getHeap()).isGreaterThan(0);
-		assertThat(state.getClasses()).isGreaterThan(8000);
+		assertThat(state.getClasses()).isGreaterThan(7000);
 	}
 
 }
