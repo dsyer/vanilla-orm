@@ -1,29 +1,8 @@
 [
 	{
-		"name": "com.zaxxer.hikari.HikariDataSource",
+		"name": "com.sun.xml.internal.stream.events.XMLEventFactoryImpl",
 		"allDeclaredFields": true,
 		"allDeclaredConstructors": true,
 		"allDeclaredMethods": true
-	},
-	{
-		"name": "app.main.aop.Interceptor",
-		"allDeclaredConstructors": true,
-		"allDeclaredMethods": true
-	},
-	{
-		"name": "javax.sql.DataSource",
-		"allDeclaredConstructors": true,
-		"allDeclaredMethods": true
-	},
-	{
-		"name": "java.lang.ClassNotFoundException",
-		"allDeclaredConstructors": true,
-		"allDeclaredMethods": true
-	},
-	{
-		"name": "org.springframework.boot.jdbc.DataSourceBuilder",
-		"allDeclaredFields": true,
-		"allDeclaredMethods": true,
-		"allDeclaredConstructors": true
 	}
 ]
