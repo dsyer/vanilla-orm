@@ -31,6 +31,10 @@
 					<groupId>net.bytebuddy</groupId>
 					<artifactId>byte-buddy</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.javassist</groupId>
+					<artifactId>javassist</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
