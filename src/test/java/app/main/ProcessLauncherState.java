@@ -53,9 +53,8 @@ public class ProcessLauncherState {
 
 	private static List<String> DEFAULT_JVM_ARGS = Arrays.asList("-Xmx128m", "-cp", "",
 			"-Djava.security.egd=file:/dev/./urandom", "-noverify",
-			"-Dspring.data.jpa.repositories.bootstrap-mode=lazy",
-			"-Dspring.cache.type=none", "-Dspring.main.lazy-initialization=true",
-			"-Dspring.jmx.enabled=false");
+			"-Dspring.data.jpa.repositories.bootstrap-mode=lazy", "-Dspring.cache.type=none",
+			"-Dspring.main.lazy-initialization=true", "-Dspring.jmx.enabled=false");
 
 	private File home;
 
@@ -99,8 +98,7 @@ public class ProcessLauncherState {
 		this.args.addAll(DEFAULT_JVM_ARGS);
 		String vendor = System.getProperty("java.vendor", "").toLowerCase();
 		if (vendor.contains("ibm") || vendor.contains("j9")) {
-			this.args.addAll(Arrays.asList("-Xms32m", "-Xquickstart", "-Xshareclasses",
-					"-Xscmx128m"));
+			this.args.addAll(Arrays.asList("-Xms32m", "-Xquickstart", "-Xshareclasses", "-Xscmx128m"));
 		}
 		else {
 			this.args.addAll(Arrays.asList("-XX:TieredStopAtLevel=1"));
@@ -138,12 +136,13 @@ public class ProcessLauncherState {
 			Archive root = ArchiveUtils.getArchive(ProcessLauncherState.class);
 			List<Archive> resolved = resolver.resolve(root, name, profiles);
 			StringBuilder builder = new StringBuilder();
+			builder.append(new File("target/test-classes").getAbsolutePath());
+			builder.append(File.pathSeparator);
 			if (includeTargetClasses) {
 				builder.append(new File("target/classes").getAbsolutePath());
 			}
 			else {
-				builder.append(new File("target/orm-0.0.1.BUILD-SNAPSHOT.jar")
-						.getAbsolutePath());
+				builder.append(new File("target/orm-0.0.1.BUILD-SNAPSHOT.jar").getAbsolutePath());
 			}
 			try {
 				for (Archive archive : resolved) {
@@ -200,8 +199,7 @@ public class ProcessLauncherState {
 			this.memory = VirtualMachineMetrics.total(metrics);
 			this.heap = VirtualMachineMetrics.heap(metrics);
 			this.classes = metrics.get("Classes").intValue();
-			System.out.println(
-					"Stopped " + mainClass + ": " + started.destroyForcibly().waitFor());
+			System.out.println("Stopped " + mainClass + ": " + started.destroyForcibly().waitFor());
 		}
 	}
 
@@ -285,12 +283,10 @@ public class ProcessLauncherState {
 				System.out.println(line);
 			}
 			if (line.contains(CLASS_COUNT_MARKER)) {
-				classes = Integer
-						.valueOf(line.substring(line.lastIndexOf("=") + 1).trim());
+				classes = Integer.valueOf(line.substring(line.lastIndexOf("=") + 1).trim());
 			}
 			if (line.contains(BEAN_COUNT_MARKER)) {
-				int count = Integer
-						.valueOf(line.substring(line.lastIndexOf("=") + 1).trim());
+				int count = Integer.valueOf(line.substring(line.lastIndexOf("=") + 1).trim());
 				beans = count > beans ? count : beans;
 			}
 			line = null;
