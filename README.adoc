@@ -36,7 +36,7 @@ CompileBenchmark  main  first  auto  139.000  8237.000  12.898  80.952  2.147  2
 $ mvn clean install
 $ CP=`java -jar $HOME/.m2/repository/org/springframework/boot/experimental/spring-boot-thin-launcher/1.0.22.RELEASE/spring-boot-thin-launcher-1.0.22.RELEASE-exec.jar --thin.archive=target/orm-0.0.1.BUILD-SNAPSHOT.jar --thin.classpath`
 $ native-image --no-server -DremoveUnusedAutoconfig=true -Dio.netty.noUnsafe=true -H:+ReportExceptionStackTraces --no-fallback --allow-incomplete-classpath --report-unsupported-elements-at-runtime -H:Name=target/demo -cp target/classes/:$HOME/.m2/repository/org/springframework/spring-boot-graal-feature/0.5.0.BUILD-SNAPSHOT/spring-boot-graal-feature-0.5.0.BUILD-SNAPSHOT.jar:$CP app.main.SampleApplication
-$ ./target/demo 2>&1
+$ ./target/demo
 Jun 28, 2019 7:35:28 AM com.fasterxml.jackson.databind.ext.Java7Support <clinit>
 WARNING: Unable to load JDK7 types (annotations, java.nio.file.Path): no Java7 support added
 
